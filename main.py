@@ -3,7 +3,7 @@ import streamlit as st
 from loan import get_yearly_payment, loan_burn_down_df, stock_df
 
 st.set_page_config(page_title="House prices", layout="wide")
-st.title("House prices")
+st.title("Housing vs share market investment")
 
 col1, col2, col3 = st.columns(3, gap="large")
 with col1:
@@ -18,8 +18,8 @@ with col1:
     )
 with col2:
     tax_rate = st.number_input("Tax rate (%)", value=35, min_value=0, step=1, format="%d")
-    interest_rate = st.number_input("Interest rate (%)", value=8.0, min_value=0.0, step=0.5, format="%f")
-    housing_rate = st.number_input("House price CAGR (%)", value=8.0, min_value=0.0, step=0.5, format="%f")
+    interest_rate = st.number_input("Interest rate (%)", value=7.5, min_value=0.0, step=0.5, format="%f")
+    housing_rate = st.number_input("House price CAGR (%)", value=7.0, min_value=0.0, step=0.5, format="%f")
     stock_Rate = st.number_input("Share market CAGR (%)", value=10.0, min_value=0.0, step=0.5, format="%f")
     payment = get_yearly_payment(loan, interest_rate)
     st.text_input("Mortgage payment (yearly)", value=payment, disabled=True)
